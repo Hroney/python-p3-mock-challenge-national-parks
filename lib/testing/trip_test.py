@@ -8,6 +8,10 @@ from classes.many_to_many import Trip
 class TestTrip:
     """Trip in many_to_many.py"""
 
+    def setup_method(self):
+        """Set up the initial state before each test method"""
+        Trip.all = []
+
     def test_has_start_date(self):
         """Trip is initialized with a start_date"""
         yosemite = NationalPark("Yosemite")

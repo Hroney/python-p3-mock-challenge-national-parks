@@ -7,6 +7,10 @@ from classes.many_to_many import Trip
 
 class TestVisitor:
     """Visitor in many_to_many.py"""
+    
+    def setup_method(self):
+        """Set up the initial state before each test method"""
+        Trip.all = []
 
     def test_has_name(self):
         """Visitor is initialized with a name"""
@@ -116,7 +120,7 @@ class TestVisitor:
         assert isinstance(vis.national_parks()[0], NationalPark)
         assert isinstance(vis.national_parks()[1], NationalPark)
 
-    def total_visits_at_park(self):
+    def test_total_visits_at_park(self):
         """returns the total number of times a visitor has visited a park."""
         vis = Visitor("Phil")
         yosemite = NationalPark("Yosemite")
